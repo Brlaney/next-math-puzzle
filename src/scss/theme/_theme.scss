@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&family=Raleway:wght@300;400;500;600&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+// Palette
+$primary: #3DC2A3;
+$secondary: #3d69c2;
+$c-warning: #ad1714;
+$c-success: #46c23d;
+$light: #f6f8ffff;
+$dark: #272d2dff;
+$border-color: #e5e5e5;
+
+// Basic colors
+$text-light: #eaeaea;
+$text-color: #011627;
+$text-secondary: #496a81;
+$white: #ffffff;
+$black: #000000;
+
+// Background colors
+$bg-dark: #1c1c1c;
+$bg-d: #343a40;
+$bg-m: #525a61;
+$bg-l: #cacfd6ff;
+$bg-ll: #d6e5e3ff;
+$bg-d-100: rgb(205, 213, 220);
+$bg-d-300: rgb(164, 171, 178);
+$bg-d-500: rgb(124, 131, 138);
+$bg-d-700: rgb(87, 93, 100);
+$bg-d-900: rgb(52, 58, 64);
+$bg-df-100: rgba(205, 213, 220, 0.6);
+$bg-df-300: rgba(164, 171, 178, 0.6);
+$bg-df-500: rgba(124, 131, 138, 0.6);
+$bg-df-700: rgba(87, 93, 100, 0.6);
+$bg-df-900: rgba(52, 58, 64, 0.85);
+
+// Brand colors
+$uikit: #2b93bd;
+$chartjs: #ff6181;
+$react: #00d6fd;
+$ui-primary: #1e87f0;
+
+$btn-disabled: #A8AABC;
+$btn-width: 160px;
+$btn-height: 60px;
+
+// Primary, secondary, and tertiary font-family
+$primary-font: 'Rubik',
+-apple-system,
+BlinkMacSystemFont,
+'Segoe UI',
+'Roboto',
+'Oxygen',
+'Ubuntu',
+'Cantarell',
+'Fira Sans',
+'Droid Sans',
+'Helvetica Neue',
+sans-serif;
+
+$secondary-font: 'Raleway',
+-apple-system,
+BlinkMacSystemFont,
+'Segoe UI',
+'Roboto',
+'Oxygen',
+'Ubuntu',
+'Cantarell',
+'Fira Sans',
+'Droid Sans',
+'Helvetica Neue',
+sans-serif;
+
+$tertiary-font: 'Source Sans Pro',
+-apple-system,
+BlinkMacSystemFont,
+'Segoe UI',
+'Roboto',
+'Oxygen',
+'Ubuntu',
+'Cantarell',
+'Fira Sans',
+'Droid Sans',
+'Helvetica Neue',
+sans-serif;
