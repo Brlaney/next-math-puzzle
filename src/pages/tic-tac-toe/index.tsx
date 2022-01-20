@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import styles from '@/styles/pages/TicTacToe.module.scss';
 
 const TicTacToe = () => {
-  const colors = ['#D62839', '#6D57EA'];
+  // const colors = ['#D62839', '#6D57EA'];
   const [turn, setTurn] = useState('x');
   const [cells, setCells] = useState(Array(9).fill(''));
   const [winner, setWinner] = useState();
@@ -14,6 +14,7 @@ const TicTacToe = () => {
   };
 
   const checkForWinner = (squares) => {
+    // Define every possible condition that wins tic-tac-toe
     let combos = {
       across: [ [0, 1, 2], [3, 4, 5], [6, 7, 8] ],
       down: [ [0, 3, 6], [1, 4, 7], [2, 5, 8] ],
