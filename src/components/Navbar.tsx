@@ -12,7 +12,7 @@ export default function Navbar() {
       <nav id={styles.navcontainer} className='uk-navbar-container'>
         <div id={styles.parent} className='uk-navbar-left uk-margin-left'>
           <a id={styles.brand} href='/' className='uk-navbar-item uk-logo'>
-            [ Math Sorting Puzzle ]
+            [ Math Puzzles ]
           </a>
         </div>
 
@@ -20,13 +20,13 @@ export default function Navbar() {
         <div id={styles.rightside} className='uk-navbar-right uk-margin-right'>
           <ul id={styles.list} className='uk-navbar-nav'>
             <li className={styles.active}>
-              <Link href='#'>
-                <a className={styles.link}>Link 1</a>
+              <Link href='/'>
+                <a className={styles.link}>Color Sorting</a>
               </Link>
             </li>
             <li className={styles.notactive}>
-              <Link href='#'>
-                <a className={styles.link}>Link 2</a>
+              <Link href='/tic-tac-toe'>
+                <a className={styles.link}>Tic-Tac-Toe</a>
               </Link>
             </li>
           </ul>

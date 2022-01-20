@@ -5,13 +5,9 @@ import styles from '@/styles/pages/TicTacToe.module.scss';
 const TicTacToe = () => {
   // const colors = ['#D62839', '#6D57EA'];
   const [turn, setTurn] = useState('x');
+  const [alrt, setAlrt] = useState(0);
   const [cells, setCells] = useState(Array(9).fill(''));
   const [winner, setWinner] = useState();
-
-  const gameVariants = {
-    opened: { translateY: -10, scale: 1.15 },
-    closed: { translateY: 50, scale: 1.0 }
-  };
 
   const checkForWinner = (squares) => {
     // Define every possible condition that wins tic-tac-toe
@@ -41,10 +37,9 @@ const TicTacToe = () => {
 
   const handleClick = (num) => {
     if (cells[num] !== '') {
-      alert('You must select an empty cell.');
+      setAlrt(1);
       return;
     }
-
     let squares = [...cells];
 
     if (turn === 'x') {
@@ -54,7 +49,6 @@ const TicTacToe = () => {
       squares[num] = 'o';
       setTurn('x');
     }
-
     checkForWinner(squares);
     setCells(squares);
   };
@@ -65,49 +59,44 @@ const TicTacToe = () => {
   };
 
   const Cell = ({ num }) => {
-    return (
-      <td onClick={() => handleClick(num)}>
-        {cells[num]}
-      </td>
-    );
+    return <td onClick={() => handleClick(num)}>{cells[num]}</td>;
   };
+
+  useEffect(() => {
+    if (alrt == 1) {
+      setTimeout(() => {
+        setAlrt(0);
+      }, 5000);
+    } else {
+      // Do nothing
+    }
+  }, [alrt])
 
   return (
     <motion.div className={styles.container}>
+      {alrt > 0 && (
+        <div className='uk-alert-danger uk-width-1-1' uk-alert>
+          <a className='uk-alert-close' />
+          <p className='uk-text-center uk-margin-top'>You must select an empty cell.</p>
+        </div>
+      )}
       {winner && (
         <>
           <h2 className='uk-text-lead'>
             {winner} is the winner!
           </h2>
-          <button
-            className='uk-button uk-button-primary'
-            onClick={() => handleRestart()}
-          >
+          <button className='uk-button uk-button-primary' onClick={() => handleRestart()}>
             Play again
           </button>
         </>
       )}
       <motion.div className={styles.grid}>
         <table className='uk-table'>
-          <caption id={styles.turn}>
-            Turn: {turn}
-          </caption>
+          <caption id={styles.turn}>Current player: {turn}</caption>
           <tbody>
-            <tr>
-              <Cell num={0} />
-              <Cell num={1} />
-              <Cell num={2} />
-            </tr>
-            <tr>
-              <Cell num={3} />
-              <Cell num={4} />
-              <Cell num={5} />
-            </tr>
-            <tr>
-              <Cell num={6} />
-              <Cell num={7} />
-              <Cell num={8} />
-            </tr>
+            <tr><Cell num={0} /><Cell num={1} /><Cell num={2} /></tr>
+            <tr><Cell num={3} /><Cell num={4} /><Cell num={5} /></tr>
+            <tr><Cell num={6} /><Cell num={7} /><Cell num={8} /></tr>
           </tbody>
         </table>
       </motion.div>
