@@ -16,9 +16,9 @@ const TicTacToe = () => {
   const checkForWinner = (squares) => {
     // Define every possible condition that wins tic-tac-toe
     let combos = {
-      across: [ [0, 1, 2], [3, 4, 5], [6, 7, 8] ],
-      down: [ [0, 3, 6], [1, 4, 7], [2, 5, 8] ],
-      diagonal: [ [0, 4, 8], [2, 4, 6] ]
+      across: [[0, 1, 2], [3, 4, 5], [6, 7, 8]],
+      down: [[0, 3, 6], [1, 4, 7], [2, 5, 8]],
+      diagonal: [[0, 4, 8], [2, 4, 6]]
     };
 
     for (let combo in combos) {
@@ -74,20 +74,24 @@ const TicTacToe = () => {
 
   return (
     <motion.div className={styles.container}>
+      {winner && (
+        <>
+          <h2 className='uk-text-lead'>
+            {winner} is the winner!
+          </h2>
+          <button
+            className='uk-button uk-button-primary'
+            onClick={() => handleRestart()}
+          >
+            Play again
+          </button>
+        </>
+      )}
       <motion.div className={styles.grid}>
-        {winner && (
-          <>
-            <h2 className='uk-text-lead'>{winner} is the winner!</h2>
-            <button
-              className='uk-button uk-button-primary'
-              onClick={() => handleRestart()}
-            >
-              Play again
-            </button>
-          </>
-        )}
         <table className='uk-table'>
-          <caption>Turn: {turn}</caption>
+          <caption id={styles.turn}>
+            Turn: {turn}
+          </caption>
           <tbody>
             <tr>
               <Cell num={0} />
