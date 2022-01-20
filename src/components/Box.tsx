@@ -2,13 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '@/styles/components/Box.module.scss';
 
-const Box = (color, keyIndex) => {
+const Box = (key, value) => {
+  const colors = ['#FFFFFF', '#00568D', '#51BA5D'];
+  let display = colors[key];
+
   return (
     <div
-      key={keyIndex}
       className={styles.box}
       style={{
-        backgroundColor: color
+        backgroundColor: '#00568D'
       }}
     />
   )
