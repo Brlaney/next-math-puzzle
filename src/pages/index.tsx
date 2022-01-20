@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { IVials } from '@/lib/types';
 import { vials } from '@/lib/data/game';
-import Box from '@/components/Box';
 import styles from '@/styles/pages/Math.module.scss';
 
 const Math = () => {
@@ -31,8 +30,6 @@ const Math = () => {
       console.log('this is where you should update the \n slots for the vial you selected as your second (move-to) vial.')
 
       var c1 = vial.status[1] - 1;
-
-      
     
     } else if (prev != 0 && vial.status[0] == 0) {
       setSelected(0);
