@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from '@/styles/pages/TicTacToe.module.scss';
-// import UIkit from 'uikit';
 
 const TicTacToe = () => {
   const colors = ['#D62839', '#6D57EA'];
