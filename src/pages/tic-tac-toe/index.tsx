@@ -92,7 +92,7 @@ const TicTacToe = () => {
       )}
       <motion.div className={styles.grid}>
         <table className='uk-table'>
-          <caption id={styles.turn}>Current player: {turn}</caption>
+          <caption id={styles.turn}>Current player: <span className={styles.emphasis}>{turn}</span></caption>
           <tbody>
             <tr><Cell num={0} /><Cell num={1} /><Cell num={2} /></tr>
             <tr><Cell num={3} /><Cell num={4} /><Cell num={5} /></tr>

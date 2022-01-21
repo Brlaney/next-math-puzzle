@@ -14,6 +14,12 @@
       color: $bg-m;
       font-size: 1.2rem;
       margin: 0 0 0.5rem 0;
+      .emphasis {
+        color: $secondary;
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 0.1rem 0.2rem;
+      }
     }
     table td {
       border: 2px solid $border-color;
