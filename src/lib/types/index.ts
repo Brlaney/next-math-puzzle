@@ -4,3 +4,9 @@ export interface IVials {
   status: number[];
   disabled?: boolean;
 };
+
+export interface IGames {
+  id: number;
+  name: string;
+  endpoint: string;
+};
