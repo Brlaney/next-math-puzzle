@@ -15,10 +15,6 @@ const Math = () => {
     closed: { translateY: 50, scale: 1.0 }
   };
 
-  let v1 = columns[0];
-  let v2 = columns[1];
-  let v3 = columns[2];
-
   const updateState = (prev, vial) => {
     if (prev == 0 && vial.status[0] == 0) {
       setSelected(0);
@@ -29,7 +25,7 @@ const Math = () => {
     } else if (prev != 0 && vial.status[0] == 0) {
       console.log('this is where you should update the \n slots for the vial you selected as your second (move-to) vial.')
 
-      var c1 = vial.status[1] - 1;
+      // var c1 = vial.status[1] - 1;
     
     } else if (prev != 0 && vial.status[0] == 0) {
       setSelected(0);

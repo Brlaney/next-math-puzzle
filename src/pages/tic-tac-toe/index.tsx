@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import styles from '@/styles/pages/TicTacToe.module.scss';
 
 const TicTacToe = () => {
-  // const colors = ['#D62839', '#6D57EA'];
   const [turn, setTurn] = useState('x');
   const [alrt, setAlrt] = useState(0);
   const [cells, setCells] = useState(Array(9).fill(''));
@@ -75,9 +74,9 @@ const TicTacToe = () => {
   return (
     <motion.div className={styles.container}>
       {alrt > 0 && (
-        <div className='uk-alert-danger uk-width-1-1' uk-alert>
+        <div className='uk-alert-danger uk-width-1-1' uk-alert='true'>
           <a className='uk-alert-close' />
-          <p className='uk-text-center uk-margin-top'>You must select an empty cell.</p>
+          <p className='uk-text-center uk-padding-smalle'>You must select an empty cell.</p>
         </div>
       )}
       {winner && (

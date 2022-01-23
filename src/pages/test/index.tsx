@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from '@/styles/pages/ColorSort.module.scss';
 
-
 const Test = () => {
-  // Constants
   const colors = ['#FFFFFF', '#6D57EA', '#D62839'];
   const initial = [[1, 2, 1, 1, 2], [2, 1, 2, 1, 2], [0, 0, 0, 0, 0]];
 
-  // State variables
-  const [turn, setTurn] = useState('x');
-  const [alrt, setAlrt] = useState(0);
+  const vialVariants = {
+    opened: { translateY: -10, scale: 1.15 },
+    closed: { translateY: 50, scale: 1.0 }
+  };
 
-  // const [entries, setEntries] = useState(initial);
+  const [selectedF, setSelectedF] = useState(0);    // Default to nothing selected 
+  const [selectedS, setSelectedS] = useState(0);    // 
+  const [selectable, setSelectable] = useState([0, 1]);
+  // const [alrt, setAlrt] = useState(0);
+
   const [entries, setEntries] = useState([
     initial[0], initial[1], initial[2]
   ]);
@@ -23,24 +26,22 @@ const Test = () => {
 
   const [winner, setWinner] = useState();
 
+
   // Define winning conditions
   const checkForWinner = (squares) => {
-    // If all entries in col1, col2, and col3 are equal, i.e.:
-    // [[1, 1, 1, 1, 1], [2, 2, 2, 2, 2], [0, 0, 0, 0, 0]]
     let combos = {
-      c1: [[1, 1, 1, 1, 1], [2, 2, 2, 2, 2], [0, 0, 0, 0, 0]],
-      c2: [[1, 1, 1, 1, 1], [0, 0, 0, 0, 0], [2, 2, 2, 2, 2]],
-      c3: [[2, 2, 2, 2, 2], [1, 1, 1, 1, 1], [0, 0, 0, 0, 0]],
-      c4: [[2, 2, 2, 2, 2], [0, 0, 0, 0, 0], [1, 1, 1, 1, 1]],
-      c5: [[0, 0, 0, 0, 0], [1, 1, 1, 1, 1], [2, 2, 2, 2, 2]],
-      c6: [[0, 0, 0, 0, 0], [2, 2, 2, 2, 2], [1, 1, 1, 1, 1]],
+      combo1: [[2, 2, 2, 2, 2], [0, 0, 0, 0, 0], [1, 1, 1, 1, 1]],
     };
+
+    if (squares[0] == combos[0] && squares[1] == combos[1] && squares[2] == combos[2]) {
+
+    }
 
     for (let combo in combos) {
       combos[combo].forEach((pattern) => {
         if (
-          squares[pattern[0]] === '' ||
-          squares[pattern[1]] === '' ||
+          squares[pattern[0]] === '' &&
+          squares[pattern[1]] === '' &&
           squares[pattern[2]] === ''
         ) {
           // Do nothing
@@ -48,26 +49,32 @@ const Test = () => {
           squares[pattern[0]] === squares[pattern[1]] &&
           squares[pattern[1]] === squares[pattern[2]]
         ) {
-          setWinner(squares[pattern[0]]);
+          // setWinner(squares[pattern[0]]);
         }
       });
     }
   };
 
-  const handleClick = (num) => {
-    if (entries[num] !== '') {
-      setAlrt(1);
+  /*
+    Need to monitor for each column vector:
+  - (nz) What is the first entry in the vial &
+  - (lv) What entry away from the top is it? 
+  */
+  const handleClick = (prev, current) => {
+    if (prev == current) {
+      // alert('alert!');
+      setSelectedF(0);
       return;
     }
+
+    if (prev != current && prev == 0) {
+      setSelectedF(current);
+    } else {
+      return
+    }
+    // let top1 = entries[num][]
     let squares = [...entries];
 
-    if (turn === 'x') {
-      squares[num] = 'x';
-      setTurn('o');
-    } else {
-      squares[num] = 'o';
-      setTurn('x');
-    }
     checkForWinner(squares);
     setEntries(squares);
   };
@@ -77,38 +84,16 @@ const Test = () => {
     setEntries(Array(15).fill(initial));
   };
 
-  const Entry = ({ num }) => {
-    return (
-      <div
-        className={styles.box}
-        style={{
-          backgroundColor: colors[num]
-        }}
-        onClick={() => handleClick(num)}
-      />
-    )
-  };
-
   useEffect(() => {
-    if (alrt == 1) {
-      setTimeout(() => {
-        setAlrt(0);
-      }, 5000);
-    } else {
-      // Do nothing
-    }
-  }, [alrt])
+    console.log('\n', 'Currently selected: ', selectedF);
+    console.log('\n', 'Current vial values: ', entries);
+    console.log('\n')
+    console.log(entries[0][3])
+
+  }, [selectedF, entries])
 
   return (
-    <motion.div className={styles.container}>
-
-      {/* Display alert */}
-      {alrt > 0 && (
-        <div className='uk-alert-danger uk-width-1-1' uk-alert>
-          <a className='uk-alert-close' />
-          <p className='uk-text-center uk-margin-top'>You cannot select an empty or full vial</p>
-        </div>
-      )}
+    <motion.div className={styles.container} layout>
 
       {/* Display that the user won */}
       {winner && (
@@ -125,26 +110,46 @@ const Test = () => {
       <motion.div className={styles.grid}>
 
         {/* Vial 1 */}
-        <motion.div className={styles.vial1}>
+        <motion.div
+          id='vial1'
+          className={styles.vial1}
+          variants={vialVariants}
+          initial={false}
+          animate={selectedF == 1 ? 'opened' : 'closed'}
+          onClick={() => handleClick(selectedF, 1)}
+        >
           {col1.map((entry, i) => (
-            <><Entry key={i} num={entry} /></>
+            <div key={i} className={styles.box} style={{ backgroundColor: colors[entry] }} />
           ))}
         </motion.div>
 
         {/* Vial 2 */}
-        <motion.div className={styles.vial2}>
+        <motion.div
+          id='vial2'
+          className={styles.vial2}
+          variants={vialVariants}
+          initial={false}
+          animate={selectedF == 2 ? 'opened' : 'closed'}
+          onClick={() => handleClick(selectedF, 2)}
+        >
           {col2.map((entry, i) => (
-            <><Entry key={i} num={entry} /></>
+            <div key={i + 5} className={styles.box} style={{ backgroundColor: colors[entry] }} />
           ))}
         </motion.div>
 
         {/* Vial 3 */}
-        <motion.div className={styles.vial3}>
+        <motion.div
+          id='vial3'
+          className={styles.vial3}
+          variants={vialVariants}
+          initial={false}
+          animate={selectedF == 3 ? 'opened' : 'closed'}
+          onClick={() => handleClick(selectedF, 3)}
+        >
           {col3.map((entry, i) => (
-            <><Entry key={i} num={entry} /></>
+            <div key={i + 10} className={styles.box} style={{ backgroundColor: colors[entry] }} />
           ))}
         </motion.div>
-
       </motion.div>
     </motion.div>
   )
