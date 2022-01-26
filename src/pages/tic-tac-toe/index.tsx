@@ -58,7 +58,16 @@ const TicTacToe = () => {
   };
 
   const Cell = ({ num }) => {
-    return <td onClick={() => handleClick(num)}>{cells[num]}</td>;
+
+    if (winner != undefined || null) {
+      return <td>{cells[num]}</td>;
+    } else {
+      return (
+        <td onClick={() => handleClick(num)}>
+          {cells[num]}
+        </td>
+      )
+    }
   };
 
   useEffect(() => {
