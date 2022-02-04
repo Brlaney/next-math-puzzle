@@ -20,10 +20,19 @@ export default function Navbar() {
         <div id={styles.rightside} className='uk-navbar-right uk-margin-right'>
           <ul id={styles.list} className='uk-navbar-nav'>
             <li className={styles.active}>
-              <Link href='/tic-tac-toe'><a className={styles.link}>Tic-Tac-Toe</a></Link>
+              <Link href='/tic-tac-toe'>
+                <a className={styles.link}>Tic-Tac-Toe</a>
+                </Link>
             </li>
             <li className={styles.active}>
-              <Link href='/color-sorting'><a className={styles.link}>Color Sorting</a></Link>
+              <Link href='/color-sorting'>
+                <a className={styles.link}>Color Sorting</a>
+                </Link>
+            </li>
+            <li className={styles.active}>
+              <Link href='/color-test'>
+                <a className={styles.link}>Sort Test</a>
+                </Link>
             </li>
           </ul>
         </div>
