@@ -16,8 +16,8 @@ const ColorTest = () => {
   };
 
   const updateState = (prev, vial) => {
-    if (prev == 0 && vial.status[0] == 0) {
-      setSelected(0);
+    if (prev == step.next[0] && vial.id == step.next[1]) {
+      setStep(steps[+1])
     
     } else if (prev == 0 && vial.status[0] != 0) {
       setSelected(vial.id);
