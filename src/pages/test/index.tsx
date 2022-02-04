@@ -133,7 +133,7 @@ const Test = () => {
           onClick={() => handleClick(selectedF, 2)}
         >
           {col2.map((entry, i) => (
-            <div key={i + 5} className={styles.box} style={{ backgroundColor: colors[entry] }} />
+            <motion.div key={i + 5} className={styles.box} style={{ backgroundColor: colors[entry] }} />
           ))}
         </motion.div>
 

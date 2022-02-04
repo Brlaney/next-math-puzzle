@@ -5,6 +5,14 @@ export interface IVials {
   disabled?: boolean;
 };
 
+export interface IVialState {
+  state: number;
+  completed?: number;
+  next?: number[];
+  arrangement: number[];
+  vials: object[];
+};
+
 export interface IGames {
   id: number;
   name: string;

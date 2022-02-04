@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { IVials } from '@/lib/types';
-import { vials } from '@/lib/data/game';
+import { IVialState, IVials } from '@/lib/types';
+import { steps } from '@/lib/data/tests';
 import styles from '@/styles/pages/Math.module.scss';
 
 
-const ColorSorting = () => {
+const ColorTest = () => {
   const [selected, setSelected] = useState(0);    // Default to nothing selected (0)
-  const [columns, setColumns] = useState(vials);  // Initial state should equal vials
-  const nslots = vials.length * 5;                // Num vials * 5 = num of total slots
+  const [step, setStep] = useState(steps[0]);  // Initial state should equal vials
   const colors = ['#FFFFFF', '#00568D', '#51BA5D'];
 
   const vialVariants = {
@@ -38,33 +37,33 @@ const ColorSorting = () => {
       // setSelected(vial.id);
       return;
     }
-    return vials;
+    return step;
   }
 
   useEffect(() => {
     console.log('\n', 'Currently selected: ', selected);
-    console.log('\n', 'Current vial values: ', columns);
-  }, [selected, columns]);
+    console.log('\n', 'Current vial values: ', step);
+  }, [selected, step]);
 
   return (
     <motion.div className={styles.container}>
       <motion.div className={styles.grid}>
 
-        {columns.map((column: IVials) => (
+        {step.vials.map((vial: IVials) => (
           <motion.div
-            key={column.id}
+            key={vial.id}
             className={styles.vial}
             initial={false}
             variants={vialVariants}
-            animate={column.id == selected && column.disabled == undefined ? 'opened' : 'closed'}
-            onClick={() => { updateState(selected, column) }}
+            animate={vial.id == selected ? 'opened' : 'closed'}
+            onClick={() => { updateState(selected, vial) }}
           >
-            {column.slots.map((slot, i) => (
+            {vial.slots.map((slot, i) => (
               <motion.div
                 key={i}
                 className={styles.box}
                 style={{
-                  backgroundColor: colors[slot]
+                  backgroundColor: colors[slot[i]]
                 }}
               />
             ))}
@@ -75,4 +74,4 @@ const ColorSorting = () => {
   )
 };
 
-export default ColorSorting;
+export default ColorTest;
