@@ -1,0 +1,40 @@
+@import '../theme/theme';
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  .grid {
+    margin: 3rem 0 0 0;
+    height: 68vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .entry {
+      width:300px;
+      height: 170px;
+      padding: 0.66rem;
+      margin: 0.44rem 0 0 0;
+      border-radius: 5px;
+      border: 1px solid $bg-l;
+      h3 {
+        color: $bg-dark;
+        font-weight: bold;
+        border-bottom: 1px solid $bg-l;
+      }
+      .paragraph {
+        font-size: 1.33rem;
+        color: $bg-d;
+        text-align: center;
+      }
+      button {
+        margin: 0 0 0.4rem 0;
+      }
+    }
+  }
+}

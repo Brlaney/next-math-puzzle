@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from '@/styles/pages/ColorSort.module.scss';
 
-const Test = () => {
+const One = () => {
   const colors = ['#FFFFFF', '#6D57EA', '#D62839'];
   const initial = [[1, 2, 1, 1, 2], [2, 1, 2, 1, 2], [0, 0, 0, 0, 0]];
 
@@ -155,4 +155,4 @@ const Test = () => {
   )
 };
 
-export default Test;
+export default One;
