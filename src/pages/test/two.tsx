@@ -5,12 +5,25 @@ import styles from '@/styles/pages/Test.module.scss';
 const Two = () => {
   // const colors = ['#FFFFFF', '#6D57EA', '#D62839'];
   // const initial = [[1, 2, 1, 1, 2], [2, 1, 2, 1, 2], [0, 0, 0, 0, 0]];
+
+  // Initial data
   const [emps, setEmps] = useState([
-    { name: 'Raja', experience: '10+ Years' },
-    { name: 'Mano', experience: '2 Years' },
-    { name: 'Tom', experience: '5+ Years' },
+    { id: 1, name: 'Raja', experience: '10+ Years' },
+    { id: 2, name: 'Mano', experience: '2 Years' },
+    { id: 3, name: 'Tom', experience: '5+ Years' },
   ]);
 
+  // Create
+  const addRow = () => {
+    let newEmp = {
+      id: 4,
+      name: 'Random User1',
+      experience: '6 Years'
+    }
+    setEmps([...emps, newEmp])
+  };
+
+  // Update
   const updateRow = (index) => {
     let newEmp = emps[index]
     newEmp['name'] = 'Modfied User';
@@ -18,10 +31,20 @@ const Two = () => {
     setEmps([...emps])
   };
 
+  // Delete
+  const deleteRow = () => {
+    //let name='Mano'
+    //setEmps(emps.filter(emp => emp.name !== name))
+    let copy_emp = [...emps]
+    copy_emp.splice(0, 1)
+    setEmps(copy_emp)
+  };
+
   return (
     <motion.div className={styles.container} layout>
       <motion.div className={styles.grid}>
 
+        {/* Read & display the data */}
         {emps.map((emp, index) => (
           <motion.div className={styles.entry} key={index}>
             <h3 className='uk-text-lead uk-header-small'>
