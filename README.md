@@ -4,12 +4,16 @@
 
 I created this project after getting hooked on the game WaterColorSort (iOS & Google Play app). I was obsessed with understanding the mathematics behind the game and decided to try and recreate my own version of the game using react hooks and state variables. Somewhere along the way I decided to add Tic-Tac-Toe into the app and I plan on adding other fun games and puzzles to this project.
 
+</br>
+
 ## Tech used
 
 - Typescript (debugging, clean & consistant code)
 - Scss  (custom themes, mixins, & more)
 - UiKit (classes, components, & styling)
 - Framer-motion (animations)
+
+</br>
 
 ## Connect with me
 

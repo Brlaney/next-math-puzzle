@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from '@/styles/pages/Home.module.scss';
-// import Card from '@/components/Card';
 
 const Home = () => {
   return (
