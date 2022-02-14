@@ -4,8 +4,6 @@
 
 I created this project after getting hooked on the game WaterColorSort (iOS & Google Play app). I was obsessed with understanding the mathematics behind the game and decided to try and recreate my own version of the game using react hooks and state variables. Somewhere along the way I decided to add Tic-Tac-Toe into the app and I plan on adding other fun games and puzzles to this project.
 
-</br>
-
 ## Tech used
 
 - Typescript (debugging, clean & consistant code)
@@ -13,15 +11,11 @@ I created this project after getting hooked on the game WaterColorSort (iOS & Go
 - UiKit (classes, components, & styling)
 - Framer-motion (animations)
 
-</br>
-
 ## Connect with me
 
 - Email: <brlaney@outlook.com>
 - Twitter: [brendan_webdev](https://twitter.com/Brendan_webdev)
 - Instagram: [brlaney94](https://www.instagram.com/brlaney94/)
-
-</br>
 
 ## License
 
@@ -48,8 +42,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Brendan Laney | Copyright (c) 2021
 ```
-
-</br>
 
 ## Contributions and issues
 
