@@ -1,43 +1,52 @@
-# Next-TS 
+# Next-math-puzzle
 
-## A Next.js template repository pre-configured with my go-to frontend stack
+## Project summary
 
-- Typescript (easier debugging, clean & consistant code)
+I created this project after getting hooked on the game WaterColorSort (iOS & Google Play app). I was obsessed with understanding the mathematics behind the game and decided to try and recreate my own version of the game using react hooks and state variables. Somewhere along the way I decided to add Tic-Tac-Toe into the app and I plan on adding other fun games and puzzles to this project.
+
+## Tech used
+
+- Typescript (debugging, clean & consistant code)
 - Scss  (custom themes, mixins, & more)
 - UiKit (classes, components, & styling)
+- Framer-motion (animations)
 
-## Current issues:
+## Connect with me
 
-My text editor (Visual Studio Code) is currently giving me and error in each file that imports anything from react. For example:
+- Email: <brlaney@outlook.com>
+- Twitter: [brendan_webdev](https://twitter.com/Brendan_webdev)
+- Instagram: [brlaney94](https://www.instagram.com/brlaney94/)
 
-```jsx
-import React from 'react';
-import { AnimatePresence } from 'framer-motion';
-import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-import Layout from '@/components/Layout';
-import 'uikit/dist/js/uikit.js';
-import 'uikit/dist/css/uikit.css';
-import '@/styles/globals.scss';
+</br>
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+## License
 
-  return (
-    <AnimatePresence>
-      <Layout>
-        <Component
-          {...pageProps}
-          key={router.route}
-        />
-      </Layout>
-    </AnimatePresence>
-  )
-};
+```text
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files, to deal 
+in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the 
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included 
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Brendan Laney | Copyright (c) 2021
 ```
 
-In the first line of the example above, 'react' is underlined with the red squiggly lines we all have come to loathe. 
+</br>
 
-The error message given by my editor is the following:
+## Contributions and issues
 
-`Cannot find module 'react' or its corresponding type declarations.ts(2307)`
+I would love your feedback on my project - please feel free to make a pull request or submit an issue if you find any. Thanks for checking out my project!
