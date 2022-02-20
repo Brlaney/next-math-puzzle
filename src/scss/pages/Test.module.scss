@@ -11,31 +11,63 @@
   justify-content: center;
   .grid {
     margin: 3rem 0 0 0;
-    height: 68vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     .entry {
-      width:300px;
-      height: 170px;
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      max-height: 250px;
       padding: 0.66rem;
-      margin: 0.44rem 0 0 0;
+      margin: 0.4rem 0.6rem;
       border-radius: 5px;
       border: 1px solid $bg-l;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
       h3 {
+        width: 100%;
         color: $bg-dark;
         font-weight: bold;
         border-bottom: 1px solid $bg-l;
+        margin: 0;
       }
       .paragraph {
-        font-size: 1.33rem;
+        display: flex;
+        width: 100%;
         color: $bg-d;
-        text-align: center;
+        font-size: 1.2rem;
+        margin: 0.2rem 0 0.8rem 0;
+        padding: 0 0 0.2rem 0;
+        justify-content: space-between;
+        .span {
+          color: $bg-dark;
+          text-align: right;
+        }
       }
-      button {
-        margin: 0 0 0.4rem 0;
+      .buttons {
+        width: 100%;
+        button {
+          margin: 0.3rem 0;
+          padding: 0;
+        }
       }
+    }
+  }
+  .below {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    .row1 {
+      margin: 0.2rem;
+    }
+    .row2 {
+      margin: 0.2rem;
     }
   }
 }

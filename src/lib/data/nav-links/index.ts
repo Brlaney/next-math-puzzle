@@ -3,5 +3,5 @@ export const links = [
   { id: 2, name: 'Color Sort', link: '/color-sort' },
   { id: 3, name: 'Color Test', link: '/test/color' },
   { id: 4, name: 'Test 1', link: '/test/one' },
-  { id: 5, name: 'Test 2', link: '/test/two' },
+  { id: 5, name: 'Test 2', link: '/test/crud' },
 ];
