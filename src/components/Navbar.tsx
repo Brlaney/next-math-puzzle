@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { links } from '@/lib/data/nav-links';
 import styles from '@/styles/components/Navbar.module.scss';
+
 
 export default function Navbar() {
   return (
@@ -12,28 +14,21 @@ export default function Navbar() {
       <nav id={styles.navcontainer} className='uk-navbar-container'>
         <div id={styles.parent} className='uk-navbar-left uk-margin-left'>
           <a id={styles.brand} href='/' className='uk-navbar-item uk-logo'>
-            [ Puzzles & Games ]
+            Fun Games
           </a>
         </div>
 
         {/* Navbar links - right-end of navbar */}
         <div id={styles.rightside} className='uk-navbar-right uk-margin-right'>
           <ul id={styles.list} className='uk-navbar-nav'>
-            <li className={styles.active}>
-              <Link href='/tic-tac-toe'>
-                <a className={styles.link}>Tic-Tac-Toe</a>
+
+            {links.map(link => (
+              <li key={link.id} className={styles.item}>
+                <Link href={link.link}>
+                  <a className={styles.link}>{link.name}</a>
                 </Link>
-            </li>
-            <li className={styles.active}>
-              <Link href='/color-sorting'>
-                <a className={styles.link}>Color Sorting</a>
-                </Link>
-            </li>
-            <li className={styles.active}>
-              <Link href='/color-test'>
-                <a className={styles.link}>Sort Test</a>
-                </Link>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>

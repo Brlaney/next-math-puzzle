@@ -6,8 +6,8 @@ import 'uikit/dist/js/uikit.js';
 import 'uikit/dist/css/uikit.css';
 import '@/styles/globals.scss';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
 
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AnimatePresence>
       <Layout>

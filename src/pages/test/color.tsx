@@ -5,7 +5,7 @@ import { steps } from '@/lib/data/tests';
 import styles from '@/styles/pages/Math.module.scss';
 
 
-const ColorTest = () => {
+const Color = () => {
   const [selected, setSelected] = useState(0);    // Default to nothing selected (0)
   const [step, setStep] = useState(steps[0]);  // Initial state should equal vials
   const colors = ['#FFFFFF', '#00568D', '#51BA5D'];
@@ -74,4 +74,4 @@ const ColorTest = () => {
   )
 };
 
-export default ColorTest;
+export default Color;

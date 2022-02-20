@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '@/styles/pages/Test.module.scss';
 
-const Two = () => {
-  // const colors = ['#FFFFFF', '#6D57EA', '#D62839'];
-  // const initial = [[1, 2, 1, 1, 2], [2, 1, 2, 1, 2], [0, 0, 0, 0, 0]];
 
-  // Initial data
+const Two = () => {
   const [emps, setEmps] = useState([
     { id: 1, name: 'Raja', experience: '10+ Years' },
     { id: 2, name: 'Mano', experience: '2 Years' },
@@ -41,7 +38,7 @@ const Two = () => {
   };
 
   return (
-    <motion.div className={styles.container} layout>
+    <motion.div className={styles.container}>
       <motion.div className={styles.grid}>
 
         {/* Read & display the data */}
@@ -56,6 +53,12 @@ const Two = () => {
               onClick={() => updateRow(index)}
             >
               Update
+            </button>
+            <button
+              className='uk-button uk-button-danger uk-width-1-1'
+              onClick={() => updateRow(index)}
+            >
+              Delete
             </button>
           </motion.div>
         ))}
