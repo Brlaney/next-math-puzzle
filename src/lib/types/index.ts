@@ -1,7 +1,7 @@
 export interface IVials {
   id: number;
   slots: number[];
-  status: number[];
+  statuses: number[];
   disabled?: boolean;
 };
 
@@ -9,7 +9,7 @@ export interface IVialState {
   state: number;
   completed?: number;
   next?: number[];
-  arrangement: number[];
+  arrangements: number[];
   vials: object[];
 };
 
