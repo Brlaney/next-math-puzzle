@@ -1,15 +1,12 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import {
-  // IVialState,
-  IVials
-} from '@/lib/types';
-import { vials } from '@/lib/data/tests';
+import { IVials } from '@/lib/types';
+import { vials } from '@/lib/data/vials';
 import styles from '@/styles/pages/Math.module.scss';
 
 
 const Color = () => {
-  const [currentStep, setCurrentStep] = React.useState(0);
+  const [currentState, setCurrentState] = React.useState(1);
   const [selected, setSelected] = React.useState(0); // Default to nothing selected (0)
   const [step, setStep] = React.useState(vials[0]);  // Initial state should equal vials
   const colors = ['#FFFFFF', '#00568D', '#51BA5D'];
@@ -19,9 +16,23 @@ const Color = () => {
     closed: { translateY: 50, scale: 1.0 }
   };
 
+  const [bpr, setBpr] = React.useState([]);
+
+  const fetchData = async () => {
+    var endpoint = 'http://localhost:3000/api/vial-state/' + {currentState};
+    const response = await fetch('http://localhost:3000/api/vial-state/');
+    const data = await response.json();
+
+    // Testing response output:
+    // console.log(data);
+    console.log(data);
+
+    setBpr(data);
+  };
+
   const updateState = (prev, vial) => {
     if (prev == step.next[0] && vial.id == step.next[1]) {
-      let nextStep = currentStep + 1;
+      let nextStep = currentState + 1;
       setStep(vials[nextStep]);
       console.log('Moving onto the next step!')
       setSelected(0);
